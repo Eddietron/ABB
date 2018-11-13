@@ -79,6 +79,14 @@ int eliminarNodo(Nodo** raiz, int id){
     return 1;
 }
 
+Nodo* encontrarNodo(Nodo** raiz, int id){
+    if(*(raiz) != NULL){
+        inOrden(&(*raiz)->hizq);
+        printf("%d, ", (*(raiz))->dato);
+        inOrden(&(*raiz)->hder);
+    }
+}
+
 void inOrden(Nodo** raiz){
     if(*(raiz) != NULL){
         inOrden(&(*raiz)->hizq);
