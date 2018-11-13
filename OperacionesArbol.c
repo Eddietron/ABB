@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Arbol.h"
-// altura, nivel, minimo, maximo, insertar, modificar nodo, eliminar, mostrar
+// altura, nivel, minimo, maximo, insertar, modificar nodo, eliminar, mostrar, encontrar
+
+/*
+    Cosas que faltan: altura, nivel y modificar
+*/
 void init(){
     raiz = (Nodo**)malloc(sizeof(Nodo*));
     *raiz = NULL;
@@ -49,18 +53,15 @@ int eliminarNodo(Nodo** raiz, int id){
             Nodo* aux = *raiz;
             *raiz = NULL;
             free(aux);
-            return 1;
         //caso 2:
         }else if((*raiz)->hizq == NULL && (*raiz)->hder != NULL){
             Nodo* aux = *raiz;
             *raiz = aux->hder;
             free(aux);
-            return 1;
         }else if((*raiz)->hizq != NULL && (*raiz)->hder == NULL){
             Nodo* aux = *raiz;
             *raiz = aux->hizq;
             free(aux);
-            return 1;
         }else{
             Nodo** min = minimo(&(*raiz)->hder);
             Nodo* aux = *min;
@@ -70,7 +71,6 @@ int eliminarNodo(Nodo** raiz, int id){
             aux->hizq = (*raiz)->hizq;
             free(raiz);
             *raiz = aux;
-            return 1;
         }
     }else if((*raiz)->dato < id)
         return eliminarNodo(&(*raiz)->hder, id);
@@ -81,10 +81,12 @@ int eliminarNodo(Nodo** raiz, int id){
 
 Nodo* encontrarNodo(Nodo** raiz, int id){
     if(*(raiz) != NULL){
-        inOrden(&(*raiz)->hizq);
-        printf("%d, ", (*(raiz))->dato);
-        inOrden(&(*raiz)->hder);
+        if((*raiz)->dato == id)
+            return *raiz;
+        return encontrarNodo(&(*raiz)->hizq, id);
+        return encontrarNodo(&(*raiz)->hder, id);
     }
+    return NULL;
 }
 
 void inOrden(Nodo** raiz){

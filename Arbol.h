@@ -10,7 +10,7 @@ void init();
 void insertar(Nodo** raiz, Nodo* nuevo);
 void mostrar(Nodo** raiz);
 int eliminarNodo(Nodo** raiz, int id);
-
+Nodo* encontrarNodo(Nodo** raiz, int id);
 int getRecorrido();
 void inOrden(Nodo** raiz);
 void preOrden(Nodo** raiz);

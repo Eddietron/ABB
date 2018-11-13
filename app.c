@@ -16,14 +16,15 @@ int main(){
     }
     inOrden(raiz);
     printf("\n");
-    eliminarNodo(raiz, 3);
-    inOrden(raiz);
-    printf("\n");
+    //eliminarNodo(raiz, 3);
+    //inOrden(raiz);
+    //printf("\n");
     //eliminarNodo(raiz, 20);
     //inOrden(raiz);
     //printf("\n");
-
-
-
+    Nodo* enco = NULL;
+    enco = encontrarNodo(raiz, 3);
+    if(enco != NULL)
+        printf("encontrado\n");
 
 }
