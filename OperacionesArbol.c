@@ -110,6 +110,12 @@ void postOrden(Nodo** raiz){
     }
 }
 
+int altura(Nodo** raiz){
+    if(*(raiz) != NULL){
+        
+    }
+}
+
 Nodo** minimo(Nodo** raiz){
     if(*raiz == NULL)
         return NULL;

@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include "Arbol.h"
 
+void menu(){
+
+}
+
 int main(){
     init();
     int a[] = {5,3,4,2};
@@ -18,4 +22,8 @@ int main(){
     //eliminarNodo(raiz, 20);
     //inOrden(raiz);
     //printf("\n");
+
+
+
+
 }
