@@ -132,7 +132,7 @@ void postOrden(Nodo** raiz){
     }
 }
 
-int altura(Nodo** raiz){
+int altura(Nodo** raiz, int h){
     if(*(raiz) != NULL){
         
     }
