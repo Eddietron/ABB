@@ -45,6 +45,11 @@ void mostrar(){
 }
 
 int eliminarNodo(Nodo** raiz, int id){
+    Nodo* aux = encontrarNodo(raiz, id);
+    if ( aux == NULL){
+        printf("dato  no encontrado\n");
+        return 0;
+    }
     if(*raiz == NULL)
         return 0;
     if((*raiz)->dato == id){
@@ -77,7 +82,7 @@ int eliminarNodo(Nodo** raiz, int id){
     return 1;
 }
 
-int modificarNodo(Nodo** raiz, int nuevo, int id){
+int modificarNodo(Nodo** raiz, int id, int nuevo){
     Nodo* target = encontrarNodo(raiz, id);
     Nodo* buscador = encontrarNodo(raiz, nuevo);
     if(buscador != NULL){
