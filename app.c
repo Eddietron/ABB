@@ -61,7 +61,7 @@ void menu(){
 }
 
 int capturarOpcion(){
-    printf("1. Insertar \n2. Mostrar\n3. Modificar\n4. Eliminar\n5. Encontrar valor\n6.Valor maximo\n7. Valor micnimo\n8. Altura del arbol\n9. Nivel\n10. Limpiar\n11. Salir\n");
+    printf("1. Insertar \n2. Mostrar\n3. Modificar\n4. Eliminar\n5. Encontrar valor\n6. Valor maximo\n7. Valor micnimo\n8. Altura del arbol\n9. Nivel\n10.Limpiar\n11.Salir\n");
     int numero;
     scanf("%d",&numero);
     return numero;

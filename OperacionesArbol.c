@@ -4,8 +4,8 @@
 // altura, nivel, minimo, maximo, insertar, modificar nodo, eliminar, mostrar, encontrar
 
 /*
-    Cosas que faltan: altura y nivel
-    Cosas con errores: altura
+    Cosas que faltan: -
+    Cosas con errores: NO C XD
 */
 Nodo* (*cndd)(int) = crearNodo;
 
@@ -112,7 +112,7 @@ void encontrarDato(int id){
     if(encontrado == NULL)
         printf("El dato no existe\n");
     else
-        printf("El dato encontrado");
+        printf("El dato encontrado\n");
 }
 
 void inOrden(Nodo** raiz){
