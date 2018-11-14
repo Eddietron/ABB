@@ -17,7 +17,7 @@ int main(){
 
 void menu(){
     int op = 0;
-    while(op != 10){
+    while(op != 11){
         op = capturarOpcion();
         switch(op){
             case 1:
@@ -33,22 +33,25 @@ void menu(){
                 eliminarNodo(raiz, (*getDato)(4));
                 break;
             case 5: 
-                valorMaximo();
+                encontrarDato((*capturarDato)(5));
                 break;
             case 6: 
-                valorMinimo();
+                valorMaximo();
                 break;
             case 7:
-                printf("Altura: %d\n", altura(raiz));
+                valorMinimo();
                 break;
             case 8:
-                printf("Nivel: %d\n", nivelNodo(raiz, (*getDato)(1), 0));
+                printf("Altura: %d\n", altura(raiz));
                 break;
             case 9: 
-                system("cls");
+                printf("Nivel: %d\n", nivelNodo(raiz, (*getDato)(1), 0));
                 break;
             case 10:
-            printf("Saliendo...\n");
+                system("cls");
+                break;
+            case 11:
+                printf("Saliendo...\n");
                 break;
             default: 
                 printf("Opcion no valida\n");
@@ -58,7 +61,7 @@ void menu(){
 }
 
 int capturarOpcion(){
-    printf("1. Insertar \n2. Mostrar\n3. Modificar\n4. Eliminar\n5. Valor m%cximo\n6. Valor m%cnimo\n7. Altura del arbol\n8. Nivel\n9. Limpiar\n10. Salir\n", 160, 162);
+    printf("1. Insertar \n2. Mostrar\n3. Modificar\n4. Eliminar\n5. Encontrar valor\n6.Valor maximo\n7. Valor micnimo\n8. Altura del arbol\n9. Nivel\n10. Limpiar\n11. Salir\n");
     int numero;
     scanf("%d",&numero);
     return numero;
@@ -72,7 +75,9 @@ int capturarDato(int i){
     else if( i == 3)
         printf("Inserta el nuevo dato\n");
     else if( i == 4)
-        printf("Inserte dato a eliminar");
+        printf("Inserte dato a eliminar\n");
+    else if( i == 5)
+        printf("Inserta el dato a encontrar\n");
     int n;
     scanf("%d", &n);
     return n;

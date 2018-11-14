@@ -5,9 +5,10 @@
 
 /*
     Cosas que faltan: altura y nivel
-    Cosas con errores: 
+    Cosas con errores: altura
 */
 Nodo* (*cndd)(int) = crearNodo;
+
 void init(){
     raiz = (Nodo**)malloc(sizeof(Nodo*));
     *raiz = NULL;
@@ -106,6 +107,14 @@ Nodo* encontrarNodo(Nodo** raiz, int id){
     return NULL;
 }
 
+void encontrarDato(int id){
+    Nodo* encontrado =  encontrarNodo(raiz, id);
+    if(encontrado == NULL)
+        printf("El dato no existe\n");
+    else
+        printf("El dato encontrado");
+}
+
 void inOrden(Nodo** raiz){
     if(*(raiz) != NULL){
         inOrden(&(*raiz)->hizq);
@@ -130,39 +139,28 @@ void postOrden(Nodo** raiz){
 }
 
 int altura(Nodo** raiz){
-    int hd = 0;
-    int hi = 0;
-    int mayor = 0;
     if(*(raiz) == NULL)
         return 0;
     else{
-        hd = altura( &(*raiz)->hder );
-        hi = altura( &(*raiz)->hizq );
-        mayor = hi;
+        int hd = altura( &(*raiz)->hder );
+        int hi = altura( &(*raiz)->hizq );
         if(hd > hi)
-            mayor = hd;
-        return mayor+1;
+            return hd+1;
+        else
+            return hi+1;
     }
 }
 
 int nivelNodo(Nodo** raiz, int id, int nivel){
-    int ni = 0;
-    int nd = 0;
-    int mayor = 0;
     if(*raiz == NULL)
-        return -1;
-    else if( (*raiz)->dato == id)
+        return 0;
+    if( (*raiz)->dato == id)
         return nivel;
-    else{
-        ni = nivelNodo(&(*raiz)->hizq, id, nivel+1);
-        nd = nivelNodo(&(*raiz)->hizq, id, nivel+1);
-        mayor = ni;
-        if(nd > ni)
-            mayor = nd;
-        if(mayor != -1)
-            return mayor;
-        return -1;
-    }
+    int nivelN = nivelNodo(&((*raiz)->hizq), id, nivel+1);
+    if( nivelN != 0)
+        return nivelN;
+    nivelN = nivelNodo(&((*raiz)->hder), id, nivel+1);
+    return nivelN;
 }
 
 Nodo** minimo(Nodo** raiz){
@@ -181,10 +179,10 @@ Nodo** maximo(Nodo** raiz){
     return maximo(&((*raiz)->hder));
 }
 void valorMaximo(){
-    printf("%d\n", (*maximo(raiz))->dato );
+    printf("valor maximo: %d\n", (*maximo(raiz))->dato );
 }
 void valorMinimo(){
-    printf("%d\n", (*minimo(raiz))->dato );
+    printf("valor minimo: %d\n", (*minimo(raiz))->dato );
 }
 int getRecorrido(){
     int n;
@@ -205,7 +203,7 @@ Nodo* crearNodo(int id){
 
 Nodo* crearNodoPD(){
     int n;
-    printf("inserta el dato");
+    printf("inserta el dato\n");
     scanf("%d", &n);
     return crearNodo(n);
 }
