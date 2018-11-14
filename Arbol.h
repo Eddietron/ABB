@@ -19,3 +19,4 @@ int altura(Nodo** raiz);
 Nodo** minimo(Nodo** raiz);
 Nodo** maximo(Nodo** raiz);
 Nodo* crearNodo(int id);
+Nodo* crearNodoPD();

@@ -4,7 +4,8 @@
 // altura, nivel, minimo, maximo, insertar, modificar nodo, eliminar, mostrar, encontrar
 
 /*
-    Cosas que faltan: altura, nivel y modificar
+    Cosas que faltan: altura y nivel
+    Cosas con errores: 
 */
 Nodo* (*cndd)(int) = crearNodo;
 void init(){
@@ -49,12 +50,10 @@ int eliminarNodo(Nodo** raiz, int id){
     if(*raiz == NULL)
         return 0;
     if((*raiz)->dato == id){
-        //caso 1:
         if((*raiz)->hizq == NULL && (*raiz)->hder == NULL){
             Nodo* aux = *raiz;
             *raiz = NULL;
             free(aux);
-        //caso 2:
         }else if((*raiz)->hizq == NULL && (*raiz)->hder != NULL){
             Nodo* aux = *raiz;
             *raiz = aux->hder;
@@ -170,4 +169,11 @@ Nodo* crearNodo(int id){
     nuevo->hizq = NULL;
     nuevo->hder = NULL;
     return nuevo;
+}
+
+Nodo* crearNodoPD(){
+    int n;
+    printf("inserta el dato");
+    scanf("%d", &n);
+    return crearNodo(n);
 }
