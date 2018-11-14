@@ -18,4 +18,4 @@ void postOrden(Nodo** raiz);
 int altura(Nodo** raiz);
 Nodo** minimo(Nodo** raiz);
 Nodo** maximo(Nodo** raiz);
-Nodo* crearNodo(int dato);
+Nodo* crearNodo(int id);

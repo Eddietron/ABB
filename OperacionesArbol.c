@@ -6,6 +6,7 @@
 /*
     Cosas que faltan: altura, nivel y modificar
 */
+Nodo* (*cndd)(int) = crearNodo;
 void init(){
     raiz = (Nodo**)malloc(sizeof(Nodo*));
     *raiz = NULL;
@@ -79,6 +80,26 @@ int eliminarNodo(Nodo** raiz, int id){
     return 1;
 }
 
+int modificarNodo(Nodo** raiz, int id, int nuevo){
+    Nodo* target = encontrarNodo(raiz, id);
+    Nodo* buscador = encontrarNodo(raiz, nuevo);
+    if(buscador != NULL){
+        printf("El nuevo valor del nodo ya existe\n");
+        return 0;
+    }
+    if(target == NULL){
+        printf("Nodo no encontrado\n");
+        return 0;
+    }
+    if(target->hizq->dato < id && target->hder->dato > id)
+        target->dato = nuevo;
+    else{
+        eliminarNodo(&target, target->dato);
+        insertar(raiz, (*cndd)(nuevo));
+    }
+    
+}
+
 Nodo* encontrarNodo(Nodo** raiz, int id){
     if(*(raiz) != NULL){
         if((*raiz)->dato == id)
@@ -143,12 +164,9 @@ int getRecorrido(){
     return getRecorrido();
 }
 
-Nodo* crearNodo(int dato){
+Nodo* crearNodo(int id){
     Nodo* nuevo = (Nodo*)malloc(sizeof(Nodo));
-    //int dato;
-    //printf("Inserta el dato: ");
-    //scanf("%d",&dato);
-    nuevo->dato = dato;
+    nuevo->dato = id;
     nuevo->hizq = NULL;
     nuevo->hder = NULL;
     return nuevo;
