@@ -132,9 +132,39 @@ void postOrden(Nodo** raiz){
     }
 }
 
-int altura(Nodo** raiz, int h){
-    if(*(raiz) != NULL){
-        
+int altura(Nodo** raiz){
+    int hd = 0;
+    int hi = 0;
+    int mayor = 0;
+    if(*(raiz) == NULL)
+        return 0;
+    else{
+        hd = altura( &(*raiz)->hder );
+        hi = altura( &(*raiz)->hizq );
+        mayor = hi;
+        if(hd > hi)
+            mayor = hd;
+        return mayor+1;
+    }
+}
+
+int nivelNodo(Nodo** raiz, int id, int nivel){
+    int ni = 0;
+    int nd = 0;
+    int mayor = 0;
+    if(*raiz == NULL)
+        return -1;
+    else if( (*raiz)->dato == id)
+        return nivel;
+    else{
+        ni = nivelNodo(&(*raiz)->hizq, id, nivel+1);
+        nd = nivelNodo(&(*raiz)->hizq, id, nivel+1);
+        mayor = ni;
+        if(nd > ni)
+            mayor = nd;
+        if(mayor != -1)
+            return mayor;
+        return -1;
     }
 }
 
