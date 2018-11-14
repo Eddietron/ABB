@@ -27,7 +27,7 @@ void insertar(Nodo** raiz, Nodo* nuevo){
     }
 }
 
-void mostrar(Nodo** raiz){
+void mostrar(){
     int recorrido = getRecorrido();
     switch(recorrido){
         case 1:
@@ -38,9 +38,6 @@ void mostrar(Nodo** raiz){
             break;
         case 3:
             postOrden(raiz);
-            break;
-        case 4:
-            //niveles(raiz);
             break;
     }
     printf("\n");
@@ -79,7 +76,7 @@ int eliminarNodo(Nodo** raiz, int id){
     return 1;
 }
 
-int modificarNodo(Nodo** raiz, int id, int nuevo){
+int modificarNodo(Nodo** raiz, int nuevo, int id){
     Nodo* target = encontrarNodo(raiz, id);
     Nodo* buscador = encontrarNodo(raiz, nuevo);
     if(buscador != NULL){
@@ -183,7 +180,12 @@ Nodo** maximo(Nodo** raiz){
         return raiz;
     return maximo(&((*raiz)->hder));
 }
-
+void valorMaximo(){
+    printf("%d\n", (*maximo(raiz))->dato );
+}
+void valorMinimo(){
+    printf("%d\n", (*minimo(raiz))->dato );
+}
 int getRecorrido(){
     int n;
     printf("Selecciona la forma recorrer el arbol:\n1. InOrden\n2. PreOrden\n3. PostOrden\n");
