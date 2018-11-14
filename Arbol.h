@@ -25,3 +25,4 @@ Nodo** maximo(Nodo** raiz);
 Nodo* crearNodo(int id);
 Nodo* crearNodoPD();
 void encontrarDato(int id);
+Nodo* encontrarAnterior(Nodo** raiz, int id);

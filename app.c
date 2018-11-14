@@ -59,14 +59,14 @@ void menu(){
         }
     }
 }
-
+//captura la opcion que el usuario elige en e menu
 int capturarOpcion(){
-    printf("1. Insertar \n2. Mostrar\n3. Modificar\n4. Eliminar\n5. Encontrar valor\n6. Valor maximo\n7. Valor micnimo\n8. Altura del arbol\n9. Nivel\n10.Limpiar\n11.Salir\n");
+    printf("1. Insertar \n2. Mostrar\n3. Modificar\n4. Eliminar\n5. Encontrar valor\n6. Valor maximo\n7. Valor minimo\n8. Altura del arbol\n9. Nivel\n10.Limpiar\n11.Salir\n");
     int numero;
     scanf("%d",&numero);
     return numero;
 }
-
+//fuincion para capturar datos, desplega un mensaje  diferente cuando i tiene determinados valores
 int capturarDato(int i){
     if (i == 1)
         printf("Inserta el dato\n");
