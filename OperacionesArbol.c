@@ -1,29 +1,53 @@
+/**
+  * @file OperacionesArbol.c
+  * @date 13/11/2018
+  * @author Eddieson Cortés
+  * @author Fernando Servín
+  * @brief Métodos del árbol binario de búsqueda
+  */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Arbol.h"
+#include "DatosLibreria.h"
 
-Nodo* (*cndd)(int) = crearNodo;
+/**
+ * @brief Función callback de tipo Nodo*
+ * Crea un nodo con valor igual al párametro de entrada
+ * @param int valor del nuevo nodo
+ * @return Nodo* con valor asignado
+ */
+Nodo* (*cndd)(char*, char*) = crearNodo;
 
+
+/**
+* @brief Asigna memoria a la raíz del árbol
+*/
 void init(){
     raiz = (Nodo**)malloc(sizeof(Nodo*));
     *raiz = NULL;
 }
-//raiz - nodo raiz del arbol
-// nuevo - nodo a insertar
+
+/**
+* @brief Inserta nuevo nodo en el arbol
+* El árbol ordenará el nuevo nodo según el valor que contenga
+* @param Nodo** dirección de la raíz
+* @param Nodo* nuevo nodo a insertar
+*/
 void insertar(Nodo** raiz, Nodo* nuevo){
     if ( !(*raiz))
         *(raiz) = nuevo;
-    else if((*raiz)->dato == nuevo->dato){
-        printf("Ese valor ya existe\n");
-        return;
-    }else{
-        if ((*raiz)->dato < nuevo->dato)
+    else{
+        if ((*raiz)->dato <= nuevo->dato)
             insertar(&((*raiz)->hder), nuevo);
         else if ((*raiz)->dato > nuevo->dato)
             insertar(&((*raiz)->hizq), nuevo);
     }
 }
-//menu para imprimir el arbol
+
+/**
+* @brief Muestra el menú para seleccionar el recorrido del árbol
+*/
 void mostrar(){
     int recorrido = getRecorrido();
     switch(recorrido){
@@ -39,17 +63,23 @@ void mostrar(){
     }
     printf("\n");
 }
-//raiz - raiz del arbol
-//id - valor del nodo a eliminar
-int eliminarNodo(Nodo** raiz, int id){
-    Nodo* aux = encontrarNodo(raiz, id);
+
+/**
+* @brief Eliminar nodo
+* Elimina el nodo que tenga el valor que se manda como parámetro
+* @param Nodo** raíz del árbol
+* @param int número a buscar para eliminar
+* @return int 1 si ya se terminó la recursividad
+*/
+int eliminarNodo(Nodo** raiz, char* palabra){
+    Nodo* aux = encontrarNodo(raiz, palabra);
     if ( aux == NULL){
         printf("dato  no encontrado\n");
         return 0;
     }
     if(*raiz == NULL)
         return 0;
-    if((*raiz)->dato == id){
+    if(equals((*raiz)->palabra, palabra) == 1){
         if((*raiz)->hizq == NULL && (*raiz)->hder == NULL){
             Nodo* aux = *raiz;
             *raiz = NULL;
@@ -72,21 +102,25 @@ int eliminarNodo(Nodo** raiz, int id){
             free(raiz);
             *raiz = aux;
         }
-    }else if((*raiz)->dato < id)
-        return eliminarNodo(&(*raiz)->hder, id);
+    }else if((*raiz)->dato < getValor(palabra))
+        return eliminarNodo(&(*raiz)->hder, palabra);
     else
-        return eliminarNodo(&(*raiz)->hizq, id);
+        return eliminarNodo(&(*raiz)->hizq, palabra);
     return 1;
 }
-//raiz - raiz del arbol
-//nuevo - nuevo valor del nodo a cambiar
-//id - valor del nodo a cambiar
 
-int modificarNodo(Nodo** raiz, int nuevo, int id){
+/**
+* @brief Modificar nodo con valor dado
+* @param Nodo** raiz de donde empieza a buscar
+* @param int nuevo valor del nodo a cambiar
+* @param int valor del nodo a cambiar
+* @return int 0 si no está el nodo a buscar o si ya existe el nue   vo nodo
+*/
+int modificarNodo(Nodo** raiz, char* significado,  char* nuevaPalabra,  char* palabra){
     Nodo* target = NULL;
-    target = encontrarNodo(raiz, id);
+    target = encontrarNodo(raiz, palabra);
     Nodo* buscador = NULL;
-    buscador = encontrarNodo(raiz, nuevo);
+    buscador = encontrarNodo(raiz, palabra);
     if(buscador != NULL){
         printf("El nuevo valor del nodo ya existe\n");
         return 0;
@@ -96,108 +130,153 @@ int modificarNodo(Nodo** raiz, int nuevo, int id){
         return 0;
     }
     if( target == *raiz)
-        if(target->hizq->dato < nuevo && target->hder->dato > nuevo)
-            target->dato = nuevo;
-        else{
-            eliminarNodo(raiz, target->dato);
-            insertar(raiz, (*cndd)(nuevo));
+        if(target->hizq->dato < getValor(nuevaPalabra) && target->hder->dato > getValor(nuevaPalabra)){
+            target->dato = getValor(nuevaPalabra);
+            target->palabra = palabra;
+            target->significado = significado;
+            return 1;
+        }else{
+            eliminarNodo(raiz, palabra);
+            insertar(raiz, (*cndd)(nuevaPalabra, significado));
+            return 1;
         }
-
     if(target->hizq == NULL && target->hder == NULL){
-        eliminarNodo(&target, target->dato);
-        insertar(raiz, (*cndd)(nuevo));
+        eliminarNodo(&target, palabra);
+        insertar(raiz, (*cndd)(nuevaPalabra, significado));
     }else if(target->hizq != NULL && target->hder == NULL){
-        Nodo* anterior =encontrarAnterior(raiz, id);
-        if(target->hizq->dato < nuevo && nuevo < anterior->dato)
-            target->dato = nuevo;
-        else{
-            eliminarNodo(&target, target->dato);
-            insertar(raiz, (*cndd)(nuevo));
+        Nodo* anterior =encontrarAnterior(raiz, palabra);
+        if(target->hizq->dato < getValor(nuevaPalabra) && getValor(nuevaPalabra) < anterior->dato){
+            target->dato = getValor(nuevaPalabra);
+            target->palabra =  nuevaPalabra;
+            target->significado =  significado;
+            return 1;
+        }else{
+            eliminarNodo(&target, palabra);
+            insertar(raiz, (*cndd)(nuevaPalabra, significado));
+            return 1;
         }
     }else if(target->hizq == NULL && target->hder != NULL){
-        Nodo* anterior =encontrarAnterior(raiz, id);
-        if(nuevo < target->hder->dato && nuevo > anterior->dato)
-            target->dato = nuevo;
-        else{
-            eliminarNodo(&target, target->dato);
-            insertar(raiz, (*cndd)(nuevo));
+        Nodo* anterior =encontrarAnterior(raiz, palabra);
+        if(getValor(nuevaPalabra) < target->hder->dato && getValor(nuevaPalabra) > anterior->dato){
+            target->dato = getValor(nuevaPalabra);
+            target->palabra = nuevaPalabra;
+            target->significado = significado;
+            return 1;
+        }else{
+            eliminarNodo(&target, palabra);
+            insertar(raiz, (*cndd)(nuevaPalabra, significado));
+            return 1;
         }
     }else if(target->hizq != NULL && target->hder != NULL){
-        eliminarNodo(raiz, id);
-        insertar(raiz, (*cndd)(nuevo));
+        eliminarNodo(raiz, palabra);
+        insertar(raiz, (*cndd)(nuevaPalabra, significado));
     }
     return 1;
 }
-//raiz - raiz del arbol
-//id - valor del nodo a encontrar
-Nodo* encontrarNodo(Nodo** raiz, int id){
+
+/**
+* @brief Busca nodo con valor dado
+* @param Nodo** raiz de donde empieza a buscar
+* @param int valor del nodo a encontrar
+* @return Nodo* NULL si no existe el nodo o el nodo si es que existe
+*/
+Nodo* encontrarNodo(Nodo** raiz, char* palabra){
     if(*(raiz) != NULL){
-        if((*raiz)->dato == id)
+        if(equals((*raiz)->palabra, palabra) == 1)
             return *raiz;
-        else if((*raiz)->dato < id)
-            return encontrarNodo(&(*raiz)->hder, id);  
-        else if ((*raiz)->dato > id)
-            return encontrarNodo(&(*raiz)->hizq, id);   
+        else if((*raiz)->dato < getValor(palabra))
+            return encontrarNodo(&(*raiz)->hder, palabra);  
+        else if ((*raiz)->dato > getValor(palabra))
+            return encontrarNodo(&(*raiz)->hizq, palabra);   
     }
     return NULL;
 }
-//raiz - raiz del arbol
-//id - valor del nodo el cual se requiere su nodo predecesor
-Nodo* encontrarAnterior(Nodo** raiz, int id){
+
+/**
+* @brief Busca nodo con valor dado
+* @param Nodo** raiz de donde empieza a buscar
+* @param int valor del nodo a encontrar del padre
+* @return Nodo* NULL si no existe el nodo o el nodo si es que existe
+*/
+Nodo* encontrarAnterior(Nodo** raiz, char* palabra){
     if(*(raiz) != NULL){
-        if((*raiz)->dato == id)
+        if(equals((*raiz)->palabra, palabra) == 1)
             return NULL;
         if((*raiz)->hder != NULL && (*raiz)->hizq != NULL)
-            if((*raiz)->hder->dato == id || (*raiz)->hizq->dato == id)
+            if( equals((*raiz)->hder->palabra, palabra) == 1 || equals((*raiz)->hizq->palabra, palabra) == 1)
                 return *raiz;
         else if((*raiz)->hder == NULL && (*raiz)->hizq != NULL)
-            if((*raiz)->hizq->dato == id)
+            if(equals((*raiz)->hizq->palabra, palabra) == 1)
                 return *raiz;
         else if((*raiz)->hder != NULL && (*raiz)->hizq == NULL)
-            if((*raiz)->hder->dato == id)
+            if(equals((*raiz)->hder->palabra, palabra) == 1)
                 return *raiz;
         else if((*raiz)->hder == NULL && (*raiz)->hizq == NULL)
                 return NULL;
-        if((*raiz)->dato < id)
-            return encontrarNodo(&(*raiz)->hder, id);  
-        else if ((*raiz)->dato > id)
-            return encontrarNodo(&(*raiz)->hizq, id);   
+        if((*raiz)->dato < getValor(palabra))
+            return encontrarNodo(&(*raiz)->hder, palabra);  
+        else if ((*raiz)->dato > getValor(palabra))
+            return encontrarNodo(&(*raiz)->hizq, palabra);   
     }
     return NULL;
 }
-//id - valor del nodo a encontrar
-void encontrarDato(int id){
-    Nodo* encontrado =  encontrarNodo(raiz, id);
+
+/**
+* @brief Busca dato en el árbol
+* @param int valor a buscar
+*/
+void encontrarDato(char* palabra){
+    Nodo* encontrado =  encontrarNodo(raiz, palabra);
     if(encontrado == NULL)
         printf("El dato no existe\n");
     else
         printf("El dato encontrado\n");
 }
-//raiz - raiz del arbol
+
+/**
+* @brief Mostrar inorden el árbol
+* @param Nodo** raíz
+*/
 void inOrden(Nodo** raiz){
     if(*(raiz) != NULL){
         inOrden(&(*raiz)->hizq);
-        printf("%d, ", (*(raiz))->dato);
+        printf("--------------------------\n");
+        printf("%s:\n%s \n", (*(raiz))->palabra, (*(raiz))->significado);
         inOrden(&(*raiz)->hder);
     }
 }
-//raiz - raiz del arbol
+
+/**
+* @brief Mostrar preorden el árbol
+* @param Nodo** raíz
+*/
 void preOrden(Nodo** raiz){
     if(*(raiz) != NULL){
-        printf("%d, ", (*(raiz))->dato);
+        printf("--------------------------\n");
+        printf("%s:\n%s \n", (*(raiz))->palabra, (*(raiz))->significado);
         preOrden(&(*raiz)->hizq);
         preOrden(&(*raiz)->hder);
     }
 }
-//raiz - raiz del arbol
+
+/**
+* @brief Mostrar postorden el árbol
+* @param Nodo** raíz
+*/
 void postOrden(Nodo** raiz){
     if(*(raiz) != NULL){  
         postOrden(&(*raiz)->hizq);
         postOrden(&(*raiz)->hder);
-        printf("%d, ", (*(raiz))->dato);
+        printf("--------------------------\n");
+        printf("%s:\n%s \n", (*(raiz))->palabra, (*(raiz))->significado);
     }
 }
-//raiz - raiz del arbol
+
+/**
+* @brief Calcula la altura del nodo
+* @param Nodo** raíz
+* @return int altura del árbol
+*/
 int altura(Nodo** raiz){
     if(*(raiz) == NULL)
         return 0;
@@ -210,21 +289,31 @@ int altura(Nodo** raiz){
             return hi+1;
     }
 }
-//raiz - raiz del arbol
-//id - valor del nodo el cual se quiere saber el nivel
-// nivel - nivel del nodo
-int nivelNodo(Nodo** raiz, int id, int nivel){
+
+/**
+* @brief Calcula el nivel del nodo dado
+* @param Nodo** raiz del árbol
+* @param int valor del nodo el cual se quiere saber el nivel
+* @param int nivel del nodo
+* @return int nivel del dato
+*/
+int nivelNodo(Nodo** raiz, char* palabra, int nivel){
     if(*raiz == NULL)
         return 0;
-    if( (*raiz)->dato == id)
+    if( equals(palabra, (*raiz)->palabra) == 1 )
         return nivel;
-    int nivelN = nivelNodo(&((*raiz)->hizq), id, nivel+1);
+    int nivelN = nivelNodo(&((*raiz)->hizq), palabra, nivel+1);
     if( nivelN != 0)
         return nivelN;
-    nivelN = nivelNodo(&((*raiz)->hder), id, nivel+1);
+    nivelN = nivelNodo(&((*raiz)->hder), palabra, nivel+1);
     return nivelN;
 }
-//raiz - raiz del arbol
+
+/**
+* @brief Busca cuál es el valor mínimo dentro del árbol
+* @param Nodo** raíz
+* @return valro mínimo contenido en el árbol
+*/
 Nodo** minimo(Nodo** raiz){
     if(*raiz == NULL)
         return NULL;
@@ -232,7 +321,12 @@ Nodo** minimo(Nodo** raiz){
         return raiz;
     return minimo(&((*raiz)->hizq));
 }
-//raiz - raiz del arbol
+
+/**
+* @brief Busca cuál es el valor máximo dentro del árbol
+* @param Nodo** raíz
+* @return valro máximo contenido en el árbol
+*/
 Nodo** maximo(Nodo** raiz){
     if(*raiz == NULL)
         return  NULL;
@@ -240,15 +334,25 @@ Nodo** maximo(Nodo** raiz){
         return raiz;
     return maximo(&((*raiz)->hder));
 }
-//imprime el valor maximo del arbol
+
+/**
+* @brief Imprime el valor maximo del arbol
+*/
 void valorMaximo(){
-    printf("valor maximo: %d\n", (*maximo(raiz))->dato );
+    printf("valor maximo: %s\n", (*maximo(raiz))->palabra );
 }
-//imprime el valor minimo del arbol
+
+/**
+* @brief Imprime el valor minimo del arbol
+*/
 void valorMinimo(){
-    printf("valor minimo: %d\n", (*minimo(raiz))->dato );
+    printf("valor minimo: %s\n", (*minimo(raiz))->palabra );
 }
-//obtiene que recorrido de arbol quiere el usuario
+
+/**
+* @brief Obtiene que recorrido de arbol quiere el usuario
+* @return int valor encontrado según el órden
+*/
 int getRecorrido(){
     int n;
     printf("Selecciona la forma recorrer el arbol:\n1. InOrden\n2. PreOrden\n3. PostOrden\n");
@@ -257,18 +361,36 @@ int getRecorrido(){
         return n;
     return getRecorrido();
 }
-//id - valor del nodo a crear
-Nodo* crearNodo(int id){
+
+/**
+* @brief Crea nodo con valor dado
+* @param int valor del nodo a crear
+* @return Nodo* con número ingresado
+*/
+Nodo* crearNodo(char* significado, char* palabra){
+    printf("Creando nodo...\n");
     Nodo* nuevo = (Nodo*)malloc(sizeof(Nodo));
-    nuevo->dato = id;
+    nuevo->dato = getValor(palabra);
+    printf("valor obtenido...\n");
+    nuevo->palabra = palabra;
+    nuevo->significado = significado;
     nuevo->hizq = NULL;
     nuevo->hder = NULL;
     return nuevo;
 }
-//crea un nodo
+
+/**
+* @brief Crea nodo con valor dado pidiendo dato
+* @param int valor del nodo a crear
+* @return Nodo* nodo con número número ingresado
+*/
 Nodo* crearNodoPD(){
-    int n;
-    printf("inserta el dato\n");
-    scanf("%d", &n);
-    return crearNodo(n);
+    char* palabra = NULL;
+    char* significado  = NULL;
+    printf("Escribe la palabra:\n");
+    palabra = getString();
+    printf("Escribe el significado:\n");
+    significado = getString();
+
+    return crearNodo(significado, palabra);
 }

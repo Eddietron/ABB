@@ -1,0 +1,122 @@
+\hypertarget{app_8c}{}\section{app.\+c File Reference}
+\label{app_8c}\index{app.\+c@{app.\+c}}
+
+
+Menú y llamada de todos lo métodos de árbol.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Arbol.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{app_8c_a6b0911fd686076180afd0d619715048b}{capturar\+Dato}} (int)
+\begin{DoxyCompactList}\small\item\em Captura el dato para ser usado en las funciones básicas del árbol. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{app_8c_a64fac1f3f6ec5157a2413b4a8b20f642}{capturar\+Opcion}} ()
+\begin{DoxyCompactList}\small\item\em Captura la opción del menú \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{app_8c_a2a0e843767aeea4f433a28b9c54f573a}{menu}} ()
+\begin{DoxyCompactList}\small\item\em Imprime el menú y pidel la opción al usuario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{app_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Método main inicia el árbol y el menú \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$($\ast$ \mbox{\hyperlink{app_8c_a4d0c23d470ab7ed225d1ce74a422e9bf}{cnsd}} )() = \mbox{\hyperlink{_operaciones_arbol_8c_a5761ecb642a7994c21bf3e02f438b9d0}{crear\+Nodo\+PD}}
+\begin{DoxyCompactList}\small\item\em Función callback de tipo Nodo$\ast$ Crea un nodo pidiéndo al usuario ingresar el dato. \end{DoxyCompactList}\item 
+int($\ast$ \mbox{\hyperlink{app_8c_ad54ce36e639236cf134584bb8c561a23}{get\+Dato}} )(int) = \mbox{\hyperlink{app_8c_a6b0911fd686076180afd0d619715048b}{capturar\+Dato}}
+\begin{DoxyCompactList}\small\item\em Función callback de tipo int Pide al usuario un entero para ser usado ya sea en el menú o en las operaciones básicas del árbol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Menú y llamada de todos lo métodos de árbol. 
+
+\begin{DoxyDate}{Date}
+13/11/2018 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Eddieson Cortés 
+
+Fernando Servín 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{app_8c_a6b0911fd686076180afd0d619715048b}\label{app_8c_a6b0911fd686076180afd0d619715048b}} 
+\index{app.\+c@{app.\+c}!capturar\+Dato@{capturar\+Dato}}
+\index{capturar\+Dato@{capturar\+Dato}!app.\+c@{app.\+c}}
+\subsubsection{\texorpdfstring{capturar\+Dato()}{capturarDato()}}
+{\footnotesize\ttfamily int capturar\+Dato (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Captura el dato para ser usado en las funciones básicas del árbol. 
+
+\begin{DoxyReturn}{Returns}
+int dato anotado por el usuario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{app_8c_a64fac1f3f6ec5157a2413b4a8b20f642}\label{app_8c_a64fac1f3f6ec5157a2413b4a8b20f642}} 
+\index{app.\+c@{app.\+c}!capturar\+Opcion@{capturar\+Opcion}}
+\index{capturar\+Opcion@{capturar\+Opcion}!app.\+c@{app.\+c}}
+\subsubsection{\texorpdfstring{capturar\+Opcion()}{capturarOpcion()}}
+{\footnotesize\ttfamily int capturar\+Opcion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Captura la opción del menú 
+
+\begin{DoxyReturn}{Returns}
+int dato anotado por el usuario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{app_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{app_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{app.\+c@{app.\+c}!main@{main}}
+\index{main@{main}!app.\+c@{app.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Método main inicia el árbol y el menú 
+
+\begin{DoxyReturn}{Returns}
+0 o 1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{app_8c_a2a0e843767aeea4f433a28b9c54f573a}\label{app_8c_a2a0e843767aeea4f433a28b9c54f573a}} 
+\index{app.\+c@{app.\+c}!menu@{menu}}
+\index{menu@{menu}!app.\+c@{app.\+c}}
+\subsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime el menú y pidel la opción al usuario. 
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{app_8c_a4d0c23d470ab7ed225d1ce74a422e9bf}\label{app_8c_a4d0c23d470ab7ed225d1ce74a422e9bf}} 
+\index{app.\+c@{app.\+c}!cnsd@{cnsd}}
+\index{cnsd@{cnsd}!app.\+c@{app.\+c}}
+\subsubsection{\texorpdfstring{cnsd}{cnsd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}$\ast$($\ast$ cnsd) () = \mbox{\hyperlink{_operaciones_arbol_8c_a5761ecb642a7994c21bf3e02f438b9d0}{crear\+Nodo\+PD}}}
+
+
+
+Función callback de tipo Nodo$\ast$ Crea un nodo pidiéndo al usuario ingresar el dato. 
+
+\begin{DoxyReturn}{Returns}
+Nodo$\ast$ con valor asignado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{app_8c_ad54ce36e639236cf134584bb8c561a23}\label{app_8c_ad54ce36e639236cf134584bb8c561a23}} 
+\index{app.\+c@{app.\+c}!get\+Dato@{get\+Dato}}
+\index{get\+Dato@{get\+Dato}!app.\+c@{app.\+c}}
+\subsubsection{\texorpdfstring{get\+Dato}{getDato}}
+{\footnotesize\ttfamily int($\ast$ get\+Dato) (int) = \mbox{\hyperlink{app_8c_a6b0911fd686076180afd0d619715048b}{capturar\+Dato}}}
+
+
+
+Función callback de tipo int Pide al usuario un entero para ser usado ya sea en el menú o en las operaciones básicas del árbol. 
+
+\begin{DoxyReturn}{Returns}
+Nodo$\ast$ con valor asignado 
+\end{DoxyReturn}

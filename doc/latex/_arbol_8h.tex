@@ -1,0 +1,428 @@
+\hypertarget{_arbol_8h}{}\section{Arbol.\+h File Reference}
+\label{_arbol_8h}\index{Arbol.\+h@{Arbol.\+h}}
+
+
+Métodos del árbol binario de búsqueda.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnodo}{nodo}}
+\begin{DoxyCompactList}\small\item\em Estructura que representa un Nodo de un árbol binario de búsqueda. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structnodo}{nodo}} \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}
+\begin{DoxyCompactList}\small\item\em Estructura que representa un Nodo de un árbol binario de búsqueda. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_arbol_8h_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\begin{DoxyCompactList}\small\item\em Asigna memoria a la raíz del árbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_arbol_8h_ae1207f3288e047d90cc2cacab5c716ce}{insertar}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}}, \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$nuevo)
+\begin{DoxyCompactList}\small\item\em Inserta nuevo nodo en el arbol El árbol ordenará el nuevo nodo según el valor que contenga. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_arbol_8h_acba1e8fffa10da42bccd1a63899df7eb}{mostrar}} ()
+\begin{DoxyCompactList}\small\item\em Muestra el menú para seleccionar el recorrido del árbol. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_arbol_8h_abfada7d6d359906807df9acdd8e372d0}{eliminar\+Nodo}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}}, int id)
+\begin{DoxyCompactList}\small\item\em Eliminar nodo Elimina el nodo que tenga el valor que se manda como parámetro. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$ \mbox{\hyperlink{_arbol_8h_ad9849fae8985901666378324293ab60c}{encontrar\+Nodo}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}}, int id)
+\begin{DoxyCompactList}\small\item\em Busca nodo con valor dado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_arbol_8h_a2a8aa5bad7500b523e10b213dca077a1}{get\+Recorrido}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene que recorrido de arbol quiere el usuario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_arbol_8h_abce785744daf019b965941fee717ddab}{in\+Orden}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}})
+\begin{DoxyCompactList}\small\item\em Mostrar inorden el árbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_arbol_8h_aca1197f112d7d341821a1ce0be0524c1}{pre\+Orden}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}})
+\begin{DoxyCompactList}\small\item\em Mostrar preorden el árbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_arbol_8h_adfa140e12ad4394e35fe7f4676f85a64}{post\+Orden}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}})
+\begin{DoxyCompactList}\small\item\em Mostrar postorden el árbol. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_arbol_8h_a3a78862bb8df465fb0893f05b86fc099}{altura}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}})
+\begin{DoxyCompactList}\small\item\em Calcula la altura del nodo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_arbol_8h_aad0cde62f6e64f6bf4f2afaf902f4ab6}{nivel\+Nodo}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}}, int id, int nivel)
+\begin{DoxyCompactList}\small\item\em Calcula el nivel del nodo dado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_arbol_8h_aca68ba80cade56b2d024b230d86978cc}{modificar\+Nodo}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}}, int nuevo, int id)
+\begin{DoxyCompactList}\small\item\em Modificar nodo con valor dado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$ \mbox{\hyperlink{_arbol_8h_a8abfb8ed651966ff4eaee99077070228}{minimo}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}})
+\begin{DoxyCompactList}\small\item\em Busca cuál es el valor mínimo dentro del árbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_arbol_8h_ac4bc4b9ec2c6314c8362cd7811177b64}{valor\+Maximo}} ()
+\begin{DoxyCompactList}\small\item\em Imprime el valor maximo del arbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_arbol_8h_a7caab4ba33d50269806289da6aa6d1ca}{valor\+Minimo}} ()
+\begin{DoxyCompactList}\small\item\em Imprime el valor minimo del arbol. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$ \mbox{\hyperlink{_arbol_8h_a25b2ccfb61228c6ec8beb044c6ec490a}{maximo}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}})
+\begin{DoxyCompactList}\small\item\em Busca cuál es el valor máximo dentro del árbol. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$ \mbox{\hyperlink{_arbol_8h_a2a45814e3d299920b6af5dcf41c7d67c}{crear\+Nodo}} (int id)
+\begin{DoxyCompactList}\small\item\em Crea nodo con valor dado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$ \mbox{\hyperlink{_arbol_8h_a5761ecb642a7994c21bf3e02f438b9d0}{crear\+Nodo\+PD}} ()
+\begin{DoxyCompactList}\small\item\em Crea nodo con valor dado pidiendo dato. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_arbol_8h_a95c3e4ee7f4190e0a7d71bd647fa0c6c}{encontrar\+Dato}} (int id)
+\begin{DoxyCompactList}\small\item\em Busca dato en el árbol. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$ \mbox{\hyperlink{_arbol_8h_aa61cc8e12f330809e4884ccf130cd038}{encontrar\+Anterior}} (\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$\mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}}, int id)
+\begin{DoxyCompactList}\small\item\em Busca nodo con valor dado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$ \mbox{\hyperlink{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}{raiz}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Métodos del árbol binario de búsqueda. 
+
+\begin{DoxyDate}{Date}
+13/11/2018 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Eddieson Cortés 
+
+Fernando Servín 
+\end{DoxyAuthor}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}\label{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}} 
+\index{Arbol.\+h@{Arbol.\+h}!Nodo@{Nodo}}
+\index{Nodo@{Nodo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{Nodo}{Nodo}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structnodo}{nodo}} \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}}
+
+
+
+Estructura que representa un Nodo de un árbol binario de búsqueda. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_arbol_8h_a3a78862bb8df465fb0893f05b86fc099}\label{_arbol_8h_a3a78862bb8df465fb0893f05b86fc099}} 
+\index{Arbol.\+h@{Arbol.\+h}!altura@{altura}}
+\index{altura@{altura}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{altura()}{altura()}}
+{\footnotesize\ttfamily int altura (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz }\end{DoxyParamCaption})}
+
+
+
+Calcula la altura del nodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raíz \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int altura del árbol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_a2a45814e3d299920b6af5dcf41c7d67c}\label{_arbol_8h_a2a45814e3d299920b6af5dcf41c7d67c}} 
+\index{Arbol.\+h@{Arbol.\+h}!crear\+Nodo@{crear\+Nodo}}
+\index{crear\+Nodo@{crear\+Nodo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{crear\+Nodo()}{crearNodo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}$\ast$ crear\+Nodo (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Crea nodo con valor dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & valor del nodo a crear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nodo$\ast$ con número ingresado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_a5761ecb642a7994c21bf3e02f438b9d0}\label{_arbol_8h_a5761ecb642a7994c21bf3e02f438b9d0}} 
+\index{Arbol.\+h@{Arbol.\+h}!crear\+Nodo\+PD@{crear\+Nodo\+PD}}
+\index{crear\+Nodo\+PD@{crear\+Nodo\+PD}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{crear\+Nodo\+P\+D()}{crearNodoPD()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}$\ast$ crear\+Nodo\+PD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crea nodo con valor dado pidiendo dato. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & valor del nodo a crear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nodo$\ast$ nodo con número número ingresado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_abfada7d6d359906807df9acdd8e372d0}\label{_arbol_8h_abfada7d6d359906807df9acdd8e372d0}} 
+\index{Arbol.\+h@{Arbol.\+h}!eliminar\+Nodo@{eliminar\+Nodo}}
+\index{eliminar\+Nodo@{eliminar\+Nodo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{eliminar\+Nodo()}{eliminarNodo()}}
+{\footnotesize\ttfamily int eliminar\+Nodo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Eliminar nodo Elimina el nodo que tenga el valor que se manda como parámetro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raíz del árbol \\
+\hline
+{\em int} & número a buscar para eliminar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 si ya se terminó la recursividad 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_aa61cc8e12f330809e4884ccf130cd038}\label{_arbol_8h_aa61cc8e12f330809e4884ccf130cd038}} 
+\index{Arbol.\+h@{Arbol.\+h}!encontrar\+Anterior@{encontrar\+Anterior}}
+\index{encontrar\+Anterior@{encontrar\+Anterior}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{encontrar\+Anterior()}{encontrarAnterior()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}$\ast$ encontrar\+Anterior (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Busca nodo con valor dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raiz de donde empieza a buscar \\
+\hline
+{\em int} & valor del nodo a encontrar del padre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nodo$\ast$ N\+U\+LL si no existe el nodo o el nodo si es que existe 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_a95c3e4ee7f4190e0a7d71bd647fa0c6c}\label{_arbol_8h_a95c3e4ee7f4190e0a7d71bd647fa0c6c}} 
+\index{Arbol.\+h@{Arbol.\+h}!encontrar\+Dato@{encontrar\+Dato}}
+\index{encontrar\+Dato@{encontrar\+Dato}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{encontrar\+Dato()}{encontrarDato()}}
+{\footnotesize\ttfamily void encontrar\+Dato (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Busca dato en el árbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & valor a buscar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_arbol_8h_ad9849fae8985901666378324293ab60c}\label{_arbol_8h_ad9849fae8985901666378324293ab60c}} 
+\index{Arbol.\+h@{Arbol.\+h}!encontrar\+Nodo@{encontrar\+Nodo}}
+\index{encontrar\+Nodo@{encontrar\+Nodo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{encontrar\+Nodo()}{encontrarNodo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}$\ast$ encontrar\+Nodo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Busca nodo con valor dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raiz de donde empieza a buscar \\
+\hline
+{\em int} & valor del nodo a encontrar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nodo$\ast$ N\+U\+LL si no existe el nodo o el nodo si es que existe 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_a2a8aa5bad7500b523e10b213dca077a1}\label{_arbol_8h_a2a8aa5bad7500b523e10b213dca077a1}} 
+\index{Arbol.\+h@{Arbol.\+h}!get\+Recorrido@{get\+Recorrido}}
+\index{get\+Recorrido@{get\+Recorrido}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{get\+Recorrido()}{getRecorrido()}}
+{\footnotesize\ttfamily int get\+Recorrido (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene que recorrido de arbol quiere el usuario. 
+
+\begin{DoxyReturn}{Returns}
+int valor encontrado según el órden 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_a02fd73d861ef2e4aabb38c0c9ff82947}\label{_arbol_8h_a02fd73d861ef2e4aabb38c0c9ff82947}} 
+\index{Arbol.\+h@{Arbol.\+h}!init@{init}}
+\index{init@{init}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Asigna memoria a la raíz del árbol. 
+
+\mbox{\Hypertarget{_arbol_8h_abce785744daf019b965941fee717ddab}\label{_arbol_8h_abce785744daf019b965941fee717ddab}} 
+\index{Arbol.\+h@{Arbol.\+h}!in\+Orden@{in\+Orden}}
+\index{in\+Orden@{in\+Orden}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{in\+Orden()}{inOrden()}}
+{\footnotesize\ttfamily void in\+Orden (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz }\end{DoxyParamCaption})}
+
+
+
+Mostrar inorden el árbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raíz \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_arbol_8h_ae1207f3288e047d90cc2cacab5c716ce}\label{_arbol_8h_ae1207f3288e047d90cc2cacab5c716ce}} 
+\index{Arbol.\+h@{Arbol.\+h}!insertar@{insertar}}
+\index{insertar@{insertar}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{insertar()}{insertar()}}
+{\footnotesize\ttfamily void insertar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz,  }\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$}]{nuevo }\end{DoxyParamCaption})}
+
+
+
+Inserta nuevo nodo en el arbol El árbol ordenará el nuevo nodo según el valor que contenga. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & dirección de la raíz \\
+\hline
+{\em Nodo$\ast$} & nuevo nodo a insertar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_arbol_8h_a25b2ccfb61228c6ec8beb044c6ec490a}\label{_arbol_8h_a25b2ccfb61228c6ec8beb044c6ec490a}} 
+\index{Arbol.\+h@{Arbol.\+h}!maximo@{maximo}}
+\index{maximo@{maximo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{maximo()}{maximo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}$\ast$$\ast$ maximo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz }\end{DoxyParamCaption})}
+
+
+
+Busca cuál es el valor máximo dentro del árbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raíz \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valro máximo contenido en el árbol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_a8abfb8ed651966ff4eaee99077070228}\label{_arbol_8h_a8abfb8ed651966ff4eaee99077070228}} 
+\index{Arbol.\+h@{Arbol.\+h}!minimo@{minimo}}
+\index{minimo@{minimo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{minimo()}{minimo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}$\ast$$\ast$ minimo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz }\end{DoxyParamCaption})}
+
+
+
+Busca cuál es el valor mínimo dentro del árbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raíz \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valro mínimo contenido en el árbol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_aca68ba80cade56b2d024b230d86978cc}\label{_arbol_8h_aca68ba80cade56b2d024b230d86978cc}} 
+\index{Arbol.\+h@{Arbol.\+h}!modificar\+Nodo@{modificar\+Nodo}}
+\index{modificar\+Nodo@{modificar\+Nodo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{modificar\+Nodo()}{modificarNodo()}}
+{\footnotesize\ttfamily int modificar\+Nodo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz,  }\item[{int}]{nuevo,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Modificar nodo con valor dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raiz de donde empieza a buscar \\
+\hline
+{\em int} & nuevo valor del nodo a cambiar \\
+\hline
+{\em int} & valor del nodo a cambiar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 si no está el nodo a buscar o si ya existe el nuevo nodo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_acba1e8fffa10da42bccd1a63899df7eb}\label{_arbol_8h_acba1e8fffa10da42bccd1a63899df7eb}} 
+\index{Arbol.\+h@{Arbol.\+h}!mostrar@{mostrar}}
+\index{mostrar@{mostrar}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{mostrar()}{mostrar()}}
+{\footnotesize\ttfamily void mostrar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Muestra el menú para seleccionar el recorrido del árbol. 
+
+\mbox{\Hypertarget{_arbol_8h_aad0cde62f6e64f6bf4f2afaf902f4ab6}\label{_arbol_8h_aad0cde62f6e64f6bf4f2afaf902f4ab6}} 
+\index{Arbol.\+h@{Arbol.\+h}!nivel\+Nodo@{nivel\+Nodo}}
+\index{nivel\+Nodo@{nivel\+Nodo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{nivel\+Nodo()}{nivelNodo()}}
+{\footnotesize\ttfamily int nivel\+Nodo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz,  }\item[{int}]{id,  }\item[{int}]{nivel }\end{DoxyParamCaption})}
+
+
+
+Calcula el nivel del nodo dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raiz del árbol \\
+\hline
+{\em int} & valor del nodo el cual se quiere saber el nivel \\
+\hline
+{\em int} & nivel del nodo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int nivel del dato 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_arbol_8h_adfa140e12ad4394e35fe7f4676f85a64}\label{_arbol_8h_adfa140e12ad4394e35fe7f4676f85a64}} 
+\index{Arbol.\+h@{Arbol.\+h}!post\+Orden@{post\+Orden}}
+\index{post\+Orden@{post\+Orden}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{post\+Orden()}{postOrden()}}
+{\footnotesize\ttfamily void post\+Orden (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz }\end{DoxyParamCaption})}
+
+
+
+Mostrar postorden el árbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raíz \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_arbol_8h_aca1197f112d7d341821a1ce0be0524c1}\label{_arbol_8h_aca1197f112d7d341821a1ce0be0524c1}} 
+\index{Arbol.\+h@{Arbol.\+h}!pre\+Orden@{pre\+Orden}}
+\index{pre\+Orden@{pre\+Orden}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{pre\+Orden()}{preOrden()}}
+{\footnotesize\ttfamily void pre\+Orden (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}} $\ast$$\ast$}]{raiz }\end{DoxyParamCaption})}
+
+
+
+Mostrar preorden el árbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nodo$\ast$$\ast$} & raíz \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_arbol_8h_ac4bc4b9ec2c6314c8362cd7811177b64}\label{_arbol_8h_ac4bc4b9ec2c6314c8362cd7811177b64}} 
+\index{Arbol.\+h@{Arbol.\+h}!valor\+Maximo@{valor\+Maximo}}
+\index{valor\+Maximo@{valor\+Maximo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{valor\+Maximo()}{valorMaximo()}}
+{\footnotesize\ttfamily void valor\+Maximo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime el valor maximo del arbol. 
+
+\mbox{\Hypertarget{_arbol_8h_a7caab4ba33d50269806289da6aa6d1ca}\label{_arbol_8h_a7caab4ba33d50269806289da6aa6d1ca}} 
+\index{Arbol.\+h@{Arbol.\+h}!valor\+Minimo@{valor\+Minimo}}
+\index{valor\+Minimo@{valor\+Minimo}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{valor\+Minimo()}{valorMinimo()}}
+{\footnotesize\ttfamily void valor\+Minimo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime el valor minimo del arbol. 
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}\label{_arbol_8h_a9559d56f3008eea4300ec7802feda56e}} 
+\index{Arbol.\+h@{Arbol.\+h}!raiz@{raiz}}
+\index{raiz@{raiz}!Arbol.\+h@{Arbol.\+h}}
+\subsubsection{\texorpdfstring{raiz}{raiz}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_arbol_8h_a46556b0fd3be65be11d967516d9866f1}{Nodo}}$\ast$$\ast$ raiz}
+
+Nodo raíz del árbol 
