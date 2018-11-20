@@ -116,60 +116,55 @@ int eliminarNodo(Nodo** raiz, char* palabra){
 * @param int valor del nodo a cambiar
 * @return int 0 si no está el nodo a buscar o si ya existe el nue   vo nodo
 */
-int modificarNodo(Nodo** raiz, char* significado,  char* nuevaPalabra,  char* palabra){
+int modificarNodo(Nodo** tree, char* significado,  char* nuevaPalabra,  char* palabra){
     Nodo* target = NULL;
-    target = encontrarNodo(raiz, palabra);
+    target = encontrarNodo(tree, palabra);
     Nodo* buscador = NULL;
-    buscador = encontrarNodo(raiz, palabra);
-    if(buscador != NULL){
-        printf("El nuevo valor del nodo ya existe\n");
-        return 0;
-    }
     if(target == NULL){
         printf("Nodo no encontrado\n");
         return 0;
     }
-    if( target == *raiz)
+    if( target == *tree)
         if(target->hizq->dato < getValor(nuevaPalabra) && target->hder->dato > getValor(nuevaPalabra)){
             target->dato = getValor(nuevaPalabra);
             target->palabra = palabra;
             target->significado = significado;
             return 1;
         }else{
-            eliminarNodo(raiz, palabra);
-            insertar(raiz, (*cndd)(nuevaPalabra, significado));
+            eliminarNodo(tree, palabra);
+            insertar(tree, (*cndd)(nuevaPalabra, significado));
             return 1;
         }
     if(target->hizq == NULL && target->hder == NULL){
         eliminarNodo(&target, palabra);
-        insertar(raiz, (*cndd)(nuevaPalabra, significado));
+        insertar(tree, (*cndd)(nuevaPalabra, significado));
     }else if(target->hizq != NULL && target->hder == NULL){
-        Nodo* anterior =encontrarAnterior(raiz, palabra);
+        Nodo* anterior =encontrarAnterior(tree, palabra);
         if(target->hizq->dato < getValor(nuevaPalabra) && getValor(nuevaPalabra) < anterior->dato){
             target->dato = getValor(nuevaPalabra);
             target->palabra =  nuevaPalabra;
             target->significado =  significado;
             return 1;
         }else{
-            eliminarNodo(&target, palabra);
-            insertar(raiz, (*cndd)(nuevaPalabra, significado));
+            eliminarNodo(raiz, palabra);
+            insertar(tree, (*cndd)(significado, nuevaPalabra));
             return 1;
         }
     }else if(target->hizq == NULL && target->hder != NULL){
-        Nodo* anterior =encontrarAnterior(raiz, palabra);
+        Nodo* anterior =encontrarAnterior(tree, palabra);
         if(getValor(nuevaPalabra) < target->hder->dato && getValor(nuevaPalabra) > anterior->dato){
             target->dato = getValor(nuevaPalabra);
             target->palabra = nuevaPalabra;
             target->significado = significado;
             return 1;
         }else{
-            eliminarNodo(&target, palabra);
-            insertar(raiz, (*cndd)(nuevaPalabra, significado));
+            eliminarNodo(raiz, palabra);
+            insertar(tree, (*cndd)(significado, nuevaPalabra));
             return 1;
         }
     }else if(target->hizq != NULL && target->hder != NULL){
         eliminarNodo(raiz, palabra);
-        insertar(raiz, (*cndd)(nuevaPalabra, significado));
+        insertar(tree, (*cndd)(significado, nuevaPalabra));
     }
     return 1;
 }
@@ -368,10 +363,8 @@ int getRecorrido(){
 * @return Nodo* con número ingresado
 */
 Nodo* crearNodo(char* significado, char* palabra){
-    printf("Creando nodo...\n");
     Nodo* nuevo = (Nodo*)malloc(sizeof(Nodo));
     nuevo->dato = getValor(palabra);
-    printf("valor obtenido...\n");
     nuevo->palabra = palabra;
     nuevo->significado = significado;
     nuevo->hizq = NULL;

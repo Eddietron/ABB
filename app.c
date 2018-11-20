@@ -124,7 +124,7 @@ char* capturarDato(int i){
     else if( i == 5)
         printf("Inserta la palabra a encontrar\n");
     else if( i == 6)
-        printf("Inserta el significado");
+        printf("Inserta el significado\n");
     char* s = NULL;
     s = getString();
     return s;
